@@ -7,7 +7,9 @@ func subSlice(slice []int, begin int, length int, capacity int) (s []int) {
 		capacity = length
 	}
 	s = make([]int, length, capacity)
-	copy(s, slice[begin:])
+	if begin < len(slice) {
+		copy(s, slice[begin:])
+	}
 	return s
 }
 
